@@ -1,32 +1,38 @@
 
 
-const Bemvindo = (props) => {
- return(
-  <div>
-    
-    <h2>Welcome {props.nome}</h2>
-    <h3>I am {props.idade} years old</h3>
-  
-  </div>
- 
- );
-}
+const Amigos = (props) => {
+  return (<div>
+    <Sobre nome={props.nome} cargo={props.cargo} 
+    idade={props.idade} />
+    <Caracteristicas caracteristica={props.caracteristica} />
+    <hr></hr>
+  </div>);
+};
 
+const Sobre = (props) => {
+  return(
+    <div>
+      <h2>Nome: {props.nome}</h2>
+      <h3>Cargo: {props.cargo}</h3>
+      <h3>Idade: {props.idade}</h3>
+    </div>
+  );
+};
+
+const Caracteristicas = (props) => {
+  return(
+    <div>
+      <a>caracteristica: {props.caracteristica}</a>
+    </div>
+  );
+};
 
 export default function App(){
   return(
     <div>
-      <h1>hello world</h1>
-      <br>
-      </br>
-      <Bemvindo nome="Elves" idade="24"/>
-      <Bemvindo nome = "Vih0" idade="23"/>
-      <Bemvindo nome = "Matias" idade="21"/>
-      
-      <br>
-      </br>
-      
-      <h2>@deus</h2>
+      <h1> conhecça meus amigos</h1>
+      <Amigos nome= "Matias" cargo="Programador" idade="23" caracteristica="Calvo"/>
+      <Amigos nome= "Vih0" cargo="Programadora" idade="22" caracteristica="Baixinha"/>
     </div>
   );
 };
