@@ -1,85 +1,59 @@
+import React, { Component } from "react";
 
-import React, {Component, component} from 'react';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:"Elves",
+      count: 0,
+    };
 
-/*
-const Amigos = (props) => {
-  return (<div>
-    <Sobre nome={props.nome} cargo={props.cargo} 
-    idade={props.idade} />
-    <Caracteristicas caracteristica={props.caracteristica} />
-    <hr></hr>
-  </div>);
-};
+    this.add = this.add.bind(this);
+    this.remove = this.remove.bind(this);
+    this.showName = this.showName.bind(this);
+  }
 
-const Sobre = (props) => {
-  return(
-    <div>
-      <h2>Nome: {props.nome}</h2>
-      <h3>Cargo: {props.cargo}</h3>
-      <h3>Idade: {props.idade}</h3>
-    </div>
-  );
-};
+  add() {
+    let state = this.state;
+    state.name="Memê";
+    state.count += 1;
+    
+    this.setState(state);
+  }
 
-const Caracteristicas = (props) => {
-  return(
-    <div>
-      <a>caracteristica: {props.caracteristica}</a>
-    </div>
-  );
-};
+  remove() {
+    let state = this.state;
+    state.name="Julio";
+    if(state.count === 0){
+      alert("opa chegou a zero");
+      return;
+    }
 
-export default function App(){
-  return(
-    <div>
-      <h1> conhecça meus amigos</h1>
-      <Amigos nome= "Matias" cargo="Programador" idade="23" caracteristica="Calvo"/>
-      <Amigos nome= "Vih0" cargo="Programadora" idade="21" caracteristica="Baixinha"/>
-      <Amigos nome= "Karol" cargo="Programadora" idade="22" caracteristica="Preta"/>
-    </div>
-  );
-};
-*/
+    state.count -= 1;
+    this.setState(state);
+  }
 
-class Amigos extends Component{
-  render(){
-    return(
+  showName(){
+    let state = this.state;
+    
+    this.setState(state);
+  };
+
+  render() {
+    return (
       <div>
-        <Sobre nome={this.props.nome} cargo={this.props.cargo} idade={this.props.idade}/>
-        <Caracteristicas caracteristica = {this.props.caracteristica}/>
+        <h1>Contador</h1>
+        <h2>{this.state.name} Program</h2>
+        <h3>
+          
+          <button onClick={this.remove}>-</button>
+          {this.state.count}
+
+          <button onClick={this.add}>+</button>
+        </h3>
       </div>
     );
-  };
-};
+  }
+}
 
-class Sobre extends Component{
-  render(){
-    return(
-      <div>
-        <h2>Nome: {this.props.nome}</h2>
-        <h3>Cargo: {this.props.cargo}</h3>
-        <h3>Idade: {this.props.idade} anos</h3>
-      </div>
-    );
-  };
-};
-
-class Caracteristicas extends Component{
-  render(){
-    return(
-      <div>
-        <a>Caracteristica = {this.props.caracteristica}</a>
-      </div>
-    );
-  };
-};
-
-
-export default function App(){
-  return(
-    <div>
-      <h1>Conheça meus amigos</h1>
-      <Amigos nome= "Matias" cargo="Programador" idade="23" caracteristica="Calvo"/>
-    </div>
-  );
-};
+export default App;
