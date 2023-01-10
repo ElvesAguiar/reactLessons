@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 class App extends Component {
+ //=============================================constructor=============================================
   constructor(props) {
     super(props);
     this.state = {
@@ -15,35 +16,32 @@ class App extends Component {
     this.formsData = this.formsData.bind(this);
     this.logIn = this.logIn.bind(this);
   };
-
+//=============================================methods=============================================
   formsData(event) {
     let form = this.state.form;
     form[event.target.name] = event.target.value;
     this.setState({ form: form });
-    console.log('teste1');
   };
 
   logIn(event) {
     event.preventDefault();
     if ((this.state.form.name === 'vih0') && (this.state.form.password === 'felizAniversario')) {
-      console.log('teste3');
       this.setState({ status: true });
     };
   };
 
-
-
-
-
+//=============================================html=============================================
   render() {
     return (
       <Container>
         {this.state.status ? (
           <div>
             <h1>
-              Parabéns Vitória, agora mais velha, continue sendo essa pessoa que íncrivel que você é.
+              Parabéns Vitoria, agora mais velha, continue sendo essa pessoa que íncrivel que você é.
             </h1>
-            <Img src="https://st.depositphotos.com/1068095/3276/i/950/depositphotos_32761307-stock-photo-cake.jpg"></Img>
+            <h3>Uma genuína dereguejonson, que esse dia seja tão especial quanto você</h3>
+            <h2>Parabéns!!!!!!</h2>
+            <ImgCake src="https://st.depositphotos.com/1068095/3276/i/950/depositphotos_32761307-stock-photo-cake.jpg"></ImgCake>
 
           </div>)
 
@@ -82,7 +80,7 @@ class App extends Component {
 };
 
 
-
+//=============================================Style=============================================
 
 const Container = styled.div`
   display: flex;
@@ -139,14 +137,10 @@ const Acess = styled.div`
   margin: 0 auto;
   
 `;
-const Img = styled.img`
+const ImgCake = styled.img`
 heigh:400px;
 width:450px;
 
 `
-
-const DivForm = styled.div`
-display: flex;
-`;
 
 export default App;
